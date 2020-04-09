@@ -1,0 +1,56 @@
+<ButImage@ButtonBehavior+AsyncImage>
+ScrollView:
+    do_scroll_x: False
+    do_scroll_y: True
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        id: Gen_box
+        orientation: 'vertical'
+        spacing: 3
+        size_hint_y: None
+        height: self.minimum_height
+        Button:
+            id: Rus_btn
+            valign:"center"
+            #size_hint: 1,.5
+            size_hint: 1, None
+            height: root.height/8
+            background_normal: "white"
+            background_color: ((200/255),(200/255),(200/255),(200/255))
+            on_press:
+                print("1")
+                app.Language_Russian()
+            ButImage:
+                size_hint: .5,.5
+                center: (Rus_btn.width/7,Rus_btn.height*3/2)
+                source: 'Image/Rus_flag.png'
+            Label:
+                text:"Русский"
+                color: 0,0,0,1
+                center: (Rus_btn.width/2,Rus_btn.height*3/2)
+                #halign:"left"
+                #valign:"center"
+        Button:
+            id: En_btn
+            size_hint: 1, None
+            height: root.height/8
+            background_normal: "white"
+            background_color: ((200/255),(200/255),(200/255),(200/255))
+            on_press:
+                print("2")
+                app.Language_English()
+            ButImage:
+                size_hint: .5,.5
+                center: (Rus_btn.width/7,Rus_btn.height/2)
+                source: 'Image/En_flag.png'
+            Label:
+                text:'English'
+                color: 0,0,0,1
+                center: (En_btn.width/2,En_btn.height/2)
+                halign:"center"
+                valign:"center"

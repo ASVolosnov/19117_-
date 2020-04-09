@@ -1,0 +1,276 @@
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#coding: win1251
+ScreenManagement:
+    transition: SlideTransition()
+    Second_Screen:
+    Fourth_Screen:
+    Fifth_Screen:
+    Seventh_Screen:
+    Eighth_Screen:
+    Ninth_Screen:
+    Empty_Screen:
+
+<Second_Screen>:
+    name: 'Second_Screen'
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            id: Tab_col
+            cols: 1
+            orientation : 'vertical'
+            size_hint_y: None
+            spacing: 2
+            height: self.minimum_height
+            Label:
+                text: " [b] Цветной тест следования по маршруту [/b] \n    позволяет оценить зрительное внимание и умение переключаться между задачами.\n\nТест состоит из двух частей, в которых вам нужно будет соединять числа, следуя определенным правилам. Общее время прохождения теста – 5 минут."
+                markup: True
+                color: 0,0,0,1
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: None,None
+                height: Tab_col.height/4
+                width: Tab_col.width*(3/4)
+                text_size: self.size
+                font_size: self.height/17
+                halign:"center"
+                valign:"middle"
+            Label:
+                text: "Ваш возраст"
+                color: 0,0,0,1
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: None,None
+                height: Tab_col.height/30
+                width: Tab_col.width/2
+                text_size: self.size
+                font_size: self.height/2.5
+                halign:"left"
+                valign:"bottom"
+            TextInput:
+                id: input_1
+                multiline : False
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: None, None
+                height: 30
+                width: Tab_col.width/2
+            Label:
+                text: "Пол"
+                color: 0,0,0,1
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: None,None
+                height: Tab_col.height/25
+                width: Tab_col.width/2
+                text_size: self.size
+                font_size: self.height/3
+                halign:"left"
+                valign:"bottom"
+            BoxLayout:
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: None, None
+                height: 30
+                width: Tab_col.width/2
+                Button:
+                    id: btn_m
+                    background_normal: "white"
+                    canvas.before:
+                        Color:
+                            rgba: 0,0,0,1
+                        Line:
+                            points: (self.pos[0],self.pos[1], self.pos[0]+self.width,self.pos[1], self.pos[0]+self.width,self.pos[1]+ self.height, self.pos[0],self.pos[1]+ self.height, self.pos[0], self.pos[1])
+                            width: 1.5
+                    on_press:
+                        root.paint_check_m()
+                Label:
+                    text:"М"
+                    font_size: self.height/3
+                    color: 0,0,0,1
+                Button:
+                    id: btn_w
+                    background_normal: "white"
+                    canvas.before:
+                        Color:
+                            rgba: 0,0,0,1
+                        Line:
+                            points: (self.pos[0],self.pos[1], self.pos[0]+self.width,self.pos[1], self.pos[0]+self.width,self.pos[1]+ self.height, self.pos[0],self.pos[1]+ self.height, self.pos[0], self.pos[1])
+                            width: 1.5
+                    on_press:
+                        root.paint_check_w()
+                Label:
+                    text:"Ж"
+                    font_size: self.height/3
+                    color: 0,0,0,1
+            Label:
+                text: "Количество лет обучения, считая с начальной школы"
+                color: 0,0,0,1
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: None,None
+                height: Tab_col.height/15
+                width: Tab_col.width/2
+                text_size: self.size
+                font_size: self.height/5
+                halign:"left"
+                valign:"bottom"
+            TextInput:
+                id: input_2
+                multiline : False
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: None, None
+                height: 30
+                width: Tab_col.width/2
+            Label:
+                size_hint: None, None
+                height: Tab_col.height/15
+                width: Tab_col.width/2
+                pos_hint: {'center_x': 0.5, 'center_y': 0.505}
+                text: "Я не страдаю неврологическими или психическими заболеваниями"
+                color: 0,0,0,1
+                text_size: self.size
+                font_size: self.height/5
+                halign:"left"
+                valign:"bottom"
+            Button:
+                #size_hint: 0.2, None
+                background_normal: "white"
+                size_hint: None,None
+                height: 30
+                width: Tab_col.width/8
+                #height: Tab_col.width/5
+                #width: Tab_col.width/2
+                pos_hint: {'center_x': (Tab_col.width/4)/Tab_col.width + (Tab_col.width/16)/Tab_col.width, 'center_y': 0.705}
+                canvas.before:
+                    Color:
+                        rgba: 0,0,0,1
+                    Line:
+                        points: (self.pos[0],self.pos[1], self.pos[0]+self.width,self.pos[1], self.pos[0]+self.width,self.pos[1]+ self.height, self.pos[0],self.pos[1]+ self.height, self.pos[0], self.pos[1])
+                        width: 1.5
+                on_press:
+                    root.paint_check_disease()
+            Label:
+                text: "Номер участника\n(если есть)"
+                color: 0,0,0,1
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: None,None
+                height: Tab_col.height/20
+                width: Tab_col.width/2
+                text_size: self.size
+                font_size: self.height/4
+                halign:"left"
+                valign:"bottom"
+            TextInput:
+                id: input_3
+                multiline : False
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: None, None
+                height: 30
+                width: Tab_col.width/2
+            Label:
+                size_hint: None, None
+                height: Tab_col.height/5.5
+                width: Tab_col.width*(3/4)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                text: "Я подтверждаю правильность указанной мной информации и даю согласие на передачу и обработку этой информации, а также моих результатов прохождении теста Центру языка и мозга Национального исследовательского университета «Высшая школа экономики» для использования в научных целях"
+                color: 0,0,0,1
+                text_size: self.size
+                font_size: self.height/13
+                halign:"center"
+                valign:"bottom"
+            Button:
+                #size_hint: 0.2, None
+                background_normal: "white"
+                size_hint: None,None
+                height: 30
+                width: Tab_col.width/8
+                #height: Tab_col.width/5
+                #width: Tab_col.width/2
+                pos_hint: {'center_x': (Tab_col.width/4)/Tab_col.width + (Tab_col.width/16)/Tab_col.width, 'center_y': 0.705}
+                canvas.before:
+                    Color:
+                        rgba: 0,0,0,1
+                    Line:
+                        points: (self.pos[0],self.pos[1], self.pos[0]+self.width,self.pos[1], self.pos[0]+self.width,self.pos[1]+ self.height, self.pos[0],self.pos[1]+ self.height, self.pos[0], self.pos[1])
+                        width: 1.5
+                on_press:
+                    root.paint_check_soglas()
+            BoxLayout:
+                size_hint: None, None
+                height: Tab_col.width/4
+                width: Tab_col.width/2
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                spacing: 2
+                Button:
+                    id: but_1
+                    text : "Вернуться"
+                    font_size: self.size[0]/7
+                    color: 0,0,0,1
+                    background_normal: "white"
+                    background_color: ((200/255),(200/255),(200/255),(200/255))
+                    text_size: Tab_col.width/2, Tab_col.width/5
+                    size_hint: 1,0.8
+                    halign:"center"
+                    valign:"center"
+                    on_press:
+                        root.cameback()
+                Button:
+                    id: but_2
+                    text : "Продолжить"
+                    font_size: self.size[0]/7
+                    color: 0,0,0,1
+                    background_normal: "white"
+                    background_color: ((200/255),(200/255),(200/255),(200/255))
+                    text_size: Tab_col.width/2, Tab_col.width/5
+                    size_hint: 1,0.8
+                    halign:"center"
+                    valign:"center"
+                    on_press:
+                        root.Text(input_1.text,input_2.text,input_3.text)
+                        root.next_screen()
+
+
+<Fourth_Screen>:
+    name: 'Fourth_Screen'
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+<Fifth_Screen>:
+    name: 'Fifth_Screen'
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Seventh_Screen>:
+    name: 'Seventh_Screen'
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+<Eighth_Screen>:
+    name: 'Eighth_Screen'
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+<Ninth_Screen>:
+    name: 'Ninth_Screen'
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+<Empty_Screen>:
+    name: 'Empty_Screen'
